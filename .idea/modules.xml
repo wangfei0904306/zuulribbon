@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example-service/example-service.iml" filepath="$PROJECT_DIR$/example-service/example-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example-service2/example-service2.iml" filepath="$PROJECT_DIR$/example-service2/example-service2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example-service/target/maven-archiver/maven-archiver.iml" filepath="$PROJECT_DIR$/example-service/target/maven-archiver/maven-archiver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka/target/maven-archiver/maven-archiver (1).iml" filepath="$PROJECT_DIR$/eureka/target/maven-archiver/maven-archiver (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/example-service/target/maven-archiver/maven-archiver (2).iml" filepath="$PROJECT_DIR$/example-service/target/maven-archiver/maven-archiver (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/zuul/zuul.iml" filepath="$PROJECT_DIR$/zuul/zuul.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zuulribbon.iml" filepath="$PROJECT_DIR$/zuulribbon.iml" />
+    </modules>
+  </component>
+</project>

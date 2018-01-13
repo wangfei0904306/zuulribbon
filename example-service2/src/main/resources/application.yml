@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: example-service
+  profiles:
+      active: local
+
+server:
+  port: 10004
+
+---
+###################  开发环境的profile  ###################
+spring:
+  profiles: local
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10001/eureka/

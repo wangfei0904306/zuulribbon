@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: zuul
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+  profiles:
+      active: local
+
+server:
+  port: 10002
+
+zuul:
+  retryable: true   #转发重试关闭
+  routes:
+    example-service:
+      path: /example-service/**
+      serviceId: example-service
+      #retryable: true  #打开这个服务的重试转发
+
+#服务调用超时配置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 8000   #hystix的连接超时时间
+
+ribbon:
+  ConnectTimeout: 500 #创建连接的超时时间
+  ReadTimeout: 600 #路由转发请求的超时时间
+  OkToRetryOnAllOperations: true
+  MaxAutoRetries: 2
+  MaxAutoRetriesNextServer: 2
+
+---
+###################  开发环境的profile  ###################
+spring:
+  profiles: local
+
+eureka:
+  instance:
+    appname: zuul
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10001/eureka/
