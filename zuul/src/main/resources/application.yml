@@ -20,17 +20,15 @@ hystrix:
     example-service:
       execution:
         isolation:
-          strategy: THREAD
           thread:
             timeoutInMilliseconds: 12000   #hystix的连接超时时间
 
-example-service:
-  ribbon:
-    ConnectTimeout: 1500 #创建连接的超时时间
-    ReadTimeout: 2000 #路由转发请求的超时时间
-    OkToRetryOnAllOperations: true
-    MaxAutoRetries: 0
-    MaxAutoRetriesNextServer: 5
+ribbon:
+  ConnectTimeout: 3500 #创建连接的超时时间
+  ReadTimeout: 4000 #路由转发请求的超时时间
+  OkToRetryOnAllOperations: true
+  MaxAutoRetries: 0 #本机不再重试
+  MaxAutoRetriesNextServer: 5
 
 ---
 ###################  开发环境的profile  ###################
@@ -43,3 +41,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:10001/eureka/
+
+      #http://www.itkeyword.com/doc/5016272925572737815/zuul-ribbon-hystrix-not-retrying-on-different-instance
+      #http://www.jb51.net/article/128511.htm
+      #https://www.jianshu.com/p/cb69bb385d24
