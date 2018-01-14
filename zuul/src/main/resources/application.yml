@@ -17,18 +17,20 @@ zuul:
 #服务调用超时配置
 hystrix:
   command:
-    default:
+    example-service:
       execution:
         isolation:
+          strategy: THREAD
           thread:
-            timeoutInMilliseconds: 8000   #hystix的连接超时时间
+            timeoutInMilliseconds: 12000   #hystix的连接超时时间
 
-ribbon:
-  ConnectTimeout: 2000 #创建连接的超时时间
-  ReadTimeout: 3000 #路由转发请求的超时时间
-  OkToRetryOnAllOperations: true
-  MaxAutoRetries: 2
-  MaxAutoRetriesNextServer: 2
+example-service:
+  ribbon:
+    ConnectTimeout: 1500 #创建连接的超时时间
+    ReadTimeout: 2000 #路由转发请求的超时时间
+    OkToRetryOnAllOperations: true
+    MaxAutoRetries: 0
+    MaxAutoRetriesNextServer: 5
 
 ---
 ###################  开发环境的profile  ###################
@@ -37,7 +39,7 @@ spring:
 
 eureka:
   instance:
-    hostname: zuul
+    hostname: ${spring.cloud.client.ipAddress}
   client:
     service-url:
       defaultZone: http://127.0.0.1:10001/eureka/
